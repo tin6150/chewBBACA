@@ -6,6 +6,7 @@
 
 
 FROM python:3.9 
+# FROM python:3.9         ## based on Debian GNU/Linux 12 (bookworm)
 # FROM alpine:3.20.2
 # FROM python:3-alpine    ## python official, try next
 # FROM ubuntu:21.04   
@@ -33,17 +34,10 @@ ENV PYTHONUNBUFFERED=1
 
 RUN echo  ''  ;\
     touch _TOP_DIR_OF_CONTAINER_  ;\
-    echo "This container build as alpine linux" | tee -a _TOP_DIR_OF_CONTAINER_  ;\
+    echo "This container build using python official package, this branch is Debian based" | tee -a _TOP_DIR_OF_CONTAINER_  ;\
     export TERM=dumb      ;\
     export NO_COLOR=TRUE  ;\
-    echo "installing packages via apk"       | tee -a _TOP_DIR_OF_CONTAINER_  ;\
-    #apk add python3 ;\
-    apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python ;\
-    #python3 -m ensurepip ;\
-    apk add --no-cache py3-pip ;\
-    #pip3 install --no-cache --upgrade pip setuptools ;\
-    apk add git wget    ;\
-    #apt-get -y --quiet install git wget ;\
+    apt-get -y --quiet install git wget ;\
     # ubuntu:   # procps provides uptime cmd
     echo "Done installing packages. " | tee -a _TOP_DIR_OF_CONTAINER_     ;\
     cd /    ;\

@@ -14,7 +14,7 @@ time -p singularity pull --name chewbbaca docker://ghcr.io/tin6150/chewBBACA:mai
 
 docker pull          ghcr.io/tin6150/chewbbaca:main  # cant use upper case letters!
 
-docker run -rm --it  --entrypoint=/bin/bash  ghcr.io/tin6150/chewbbaca:main 
+docker run --rm -it  --entrypoint=sh  ghcr.io/tin6150/chewbbaca:main 
 
 == base os selection ==
 
