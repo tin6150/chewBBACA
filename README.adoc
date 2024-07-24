@@ -1,0 +1,18 @@
+= chewBBACA =
+
+unofficial containerization of https://github.com/B-UMMI/chewBBACA
+
+
+Home: https://github.com/B-UMMI/chewBBACA
+Documentation: https://chewbbaca.readthedocs.io/en/latest/index.html
+
+can be used to find cgMLST and wgMLST
+
+bioconda package: https://anaconda.org/bioconda/chewbbaca
+
+biocontainers: https://quay.io/repository/biocontainers/chewbbaca
+
+no builds done, thus creating my own
+
+
+

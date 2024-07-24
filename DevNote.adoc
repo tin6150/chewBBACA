@@ -9,3 +9,52 @@ time -p singularity pull --name chewbbaca docker://ghcr.io/tin6150/chewBBACA:mai
 ###  takes a long time in gs :-/
 #XX singularity pull --name python-chewbbaca.SIF docker://ghcr.io/tin6150/python:61f1422  # can NOT pull by commit ref
 
+
+[,bash]
+
+docker pull          ghcr.io/tin6150/chewbbaca:main  # cant use upper case letters!
+
+docker run -rm --it  --entrypoint=/bin/bash  ghcr.io/tin6150/chewbbaca:main 
+
+= base os selection =
+
+alpine use apk
+and it want to impose its way on python pip packages
+
+so leaving alpine base build alone for now, in a new branch
+
+[,cf]
+
+/opt/gitrepo/container # pip3 install chewbbaca
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─>
+    The system-wide python installation should be maintained using the system
+    package manager (apk) only.
+
+    If the package in question is not packaged already (and hence installable via
+    "apk add py3-somepackage"), please consider installing it inside a virtual
+    environment, e.g.:
+
+    python3 -m venv /path/to/venv
+    . /path/to/venv/bin/activate
+    pip install mypackage
+
+    To exit the virtual environment, run:
+
+    deactivate
+
+    The virtual environment is not deleted, and can be re-entered by re-sourcing
+    the activate file.
+
+    To automatically manage virtual environments, consider using pipx (from the
+    pipx package).
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+/opt/gitrepo/container # apk add py3-chewbbaca
+ERROR: unable to select packages:
+  py3-chewbbaca (no such package):
+    required by: world[py3-chewbbaca]
+

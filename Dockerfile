@@ -6,6 +6,7 @@
 
 
 FROM alpine:3.20.2
+# FROM python:3-alpine    ## python official, try next
 # FROM ubuntu:21.04   
 # FROM ubuntu:20.04   
 # FROM ubuntu:22.04       ## invoking docker ps from inside zink has strange error, test with older version
@@ -25,16 +26,22 @@ ARG TZ=PST8PDT
 #https://no-color.org/
 ARG NO_COLOR=1
 
+# Install python/pip
+ENV PYTHONUNBUFFERED=1
+
 
 RUN echo  ''  ;\
     touch _TOP_DIR_OF_CONTAINER_  ;\
     echo "This container build as alpine linux" | tee -a _TOP_DIR_OF_CONTAINER_  ;\
     export TERM=dumb      ;\
     export NO_COLOR=TRUE  ;\
-    apt-get update ;\  
     echo "installing packages via apk"       | tee -a _TOP_DIR_OF_CONTAINER_  ;\
-    apk add python3 ;\
-    #apk add git wget    ;\
+    #apk add python3 ;\
+    apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python ;\
+    #python3 -m ensurepip ;\
+    apk add --no-cache py3-pip ;\
+    #pip3 install --no-cache --upgrade pip setuptools ;\
+    apk add git wget    ;\
     #apt-get -y --quiet install git wget ;\
     # ubuntu:   # procps provides uptime cmd
     echo "Done installing packages. " | tee -a _TOP_DIR_OF_CONTAINER_     ;\
