@@ -5,7 +5,7 @@
 # see DevNotes.txt for more build details
 
 
-# FROM alpine:3.20.2
+FROM alpine:3.20.2
 # FROM ubuntu:21.04   
 # FROM ubuntu:20.04   
 # FROM ubuntu:22.04       ## invoking docker ps from inside zink has strange error, test with older version
