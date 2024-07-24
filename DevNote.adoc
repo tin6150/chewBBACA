@@ -16,6 +16,19 @@ docker pull          ghcr.io/tin6150/chewbbaca:main  # cant use upper case lette
 
 docker run --rm -it  --entrypoint=sh  ghcr.io/tin6150/chewbbaca:main 
 
+== testing ==
+
+./chewbbaca.SIF
+Apptainer> chewBBACA.py -h
+
+
+SINGULARITY_CACHEDIR=/global/scratch/users/tin/cacheDir
+
+singularity exec $SINGULARITY_CACHEDIR/chewbbaca_alpha.SIF chewBBACA.py -h
+
+singularity exec $SINGULARITY_CACHEDIR/chewbbaca_alpha.SIF chewBBACA.py AlleleCall #... 
+
+
 == base os selection ==
 
 main branch now use python official docker hub image

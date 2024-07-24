@@ -66,8 +66,8 @@ RUN echo ''  ;\
     echo  ""
 
 
-ENV DBG_APP_VER  "Dockerfile 2024.0724"
-ENV DBG_DOCKERFILE Dockerfile__base
+ENV DBG_APP_VER  "Dockerfile 2024.0724c"
+ENV DBG_DOCKERFILE 'Dockerfile entrypoint=/usr/local/bin/chewBBACA.py'
 
 RUN  cd / \
   && touch _TOP_DIR_OF_CONTAINER_  \
@@ -97,8 +97,9 @@ ENV TEST_DOCKER_ENV_NEQ1 "Dockerfile ENV assignment as foo bar, no  use of =, bo
 #-- unset path to ensure it didn't make Rscript behave worse cuz somehow "test" got masked/lost
 
 
-ENTRYPOINT [ "/bin/bash" ]
+#ENTRYPOINT [ "/bin/bash" ]
 #ENTRYPOINT [ "/bin/python3" ]
+ENTRYPOINT [ "/usr/local/bin/chewBBACA.py" ]
 # $@ should be passed by docker run as arg when ENTRYPOINT is invoked
 # ref https://stackoverflow.com/questions/32727594/how-to-pass-arguments-to-shell-script-through-docker-run
 
