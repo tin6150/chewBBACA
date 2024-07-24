@@ -16,7 +16,11 @@ docker pull          ghcr.io/tin6150/chewbbaca:main  # cant use upper case lette
 
 docker run -rm --it  --entrypoint=/bin/bash  ghcr.io/tin6150/chewbbaca:main 
 
-= base os selection =
+== base os selection ==
+
+main branch now use python official docker hub image
+
+=== alpine 
 
 alpine use apk
 and it want to impose its way on python pip packages

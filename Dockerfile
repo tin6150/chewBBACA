@@ -5,7 +5,8 @@
 # see DevNotes.txt for more build details
 
 
-FROM alpine:3.20.2
+FROM python:3.9 
+# FROM alpine:3.20.2
 # FROM python:3-alpine    ## python official, try next
 # FROM ubuntu:21.04   
 # FROM ubuntu:20.04   
