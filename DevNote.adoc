@@ -5,13 +5,16 @@
 APPTAINER_CACHEDIR=/mnt/c/tin/apptainer-repo
 #cd $SINGULARITY_CACHEDIR
 cd $APPTAINER_CACHEDIR
-time -p singularity pull --name chewbbaca docker://ghcr.io/tin6150/chewBBACA:main
+time -p singularity pull --name chewbbaca docker://ghcr.io/tin6150/chewbbaca:main
 ### takes a long time in gs :-/  
 ### real 3949.79   # 1.1 hour!  waiting for some lock to time out?
 ### user 319.04
 ### sys 214.11
 
 #XX singularity pull --name python-chewbbaca.SIF docker://ghcr.io/tin6150/python:61f1422  # can NOT pull by commit ref
+
+
+# wsl /mnt/c/tin/apptainer-repo/
 
 
 [,bash]
